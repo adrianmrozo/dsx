@@ -12,7 +12,8 @@ tensorflow==2.3.1
 h5py==2.10.0 \
     --hash=sha256:d35f7a3a6cefec82bfdad2785e78359a0e6a5fbb3f605dd5623ce88082ccd681
 
-psycopg2 == 2.8.6
+psycopg2 == 2.8.6 \
+    --hash=sha256:fb23f6c71107c37fd667cb4ea363ddeb936b348bbd6449278eb92c189699f543
 
 matplotlib==3.3.3 \
     --hash=sha256:83e6c895d93fdf93eeff1a21ee96778ba65ef258e5d284160f7c628fee40c38f
