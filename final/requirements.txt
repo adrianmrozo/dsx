@@ -27,3 +27,6 @@ flask-ngrok==0.0.25 \
 
 random2==1.0.1 \
     --hash=sha256:34ad30aac341039872401595df9ab2c9dc36d0b7c077db1cea9ade430ed1c007
+
+astunparse==1.6.3 \
+    --hash=sha256:c2652417f2c8b5bb325c885ae329bdf3f86424075c4fd1a128674bc6fba4b8e8
