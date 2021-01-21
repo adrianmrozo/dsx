@@ -7,7 +7,8 @@ imutils==0.5.3 \
 keras==2.4.3 \
     --hash=sha256:05e2faf6885f7899482a7d18fc00ba9655fe2c9296a35ad96949a07a9c27d1bb
 
-tensorflow==2.3.1
+tensorflow==2.3.1 \
+    --hash=sha256:87750a476aa6f76b3aad5e6182faf2a3036a3d4c0db3b6d7463ebbaf4b184a23
 
 h5py==2.10.0 \
     --hash=sha256:d35f7a3a6cefec82bfdad2785e78359a0e6a5fbb3f605dd5623ce88082ccd681
