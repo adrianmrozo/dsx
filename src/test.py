@@ -70,7 +70,8 @@ def test_one(model):
  return testData, test_label, pred_label, idxs[0]
 
  
- def test_new(model, userimagenumber):
+ 		
+def test_new(model, userimagenumber):
  # initialize the ground-truth labels for the CIFAR-10 dataset
  gtLabels = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
  
