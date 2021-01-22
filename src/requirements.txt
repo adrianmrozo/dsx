@@ -1,0 +1,32 @@
+numpy == 1.18.5 \
+    --hash=sha256:4674f7d27a6c1c52a4d1aa5f0881f1eff840d2206989bae6acb1c7668c02ebfb
+
+imutils==0.5.3 \
+    --hash=sha256:857af6169d90e4a0a814130b9b107f5d611150ce440107e1c1233521c6fb1e2b
+
+keras==2.4.3 \
+    --hash=sha256:05e2faf6885f7899482a7d18fc00ba9655fe2c9296a35ad96949a07a9c27d1bb
+
+tensorflow==2.3.1 \
+    --hash=sha256:87750a476aa6f76b3aad5e6182faf2a3036a3d4c0db3b6d7463ebbaf4b184a23
+
+h5py==2.10.0 \
+    --hash=sha256:d35f7a3a6cefec82bfdad2785e78359a0e6a5fbb3f605dd5623ce88082ccd681
+
+psycopg2 == 2.8.6 \
+    --hash=sha256:fb23f6c71107c37fd667cb4ea363ddeb936b348bbd6449278eb92c189699f543
+
+matplotlib==3.3.3 \
+    --hash=sha256:83e6c895d93fdf93eeff1a21ee96778ba65ef258e5d284160f7c628fee40c38f
+
+flask==1.1.2 \
+    --hash=sha256:8a4fdd8936eba2512e9c85df320a37e694c93945b33ef33c89946a340a238557
+
+flask-ngrok==0.0.25 \
+    --hash=sha256:724519a4dd3a2d374af50d4c0c21a26548737de0cf23f68dfb8d3b31c7311e93
+
+random2==1.0.1 \
+    --hash=sha256:34ad30aac341039872401595df9ab2c9dc36d0b7c077db1cea9ade430ed1c007
+
+astunparse==1.6.3 \
+    --hash=sha256:c2652417f2c8b5bb325c885ae329bdf3f86424075c4fd1a128674bc6fba4b8e8
