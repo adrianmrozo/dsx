@@ -26,7 +26,7 @@ def predict():
 def newpredict():
 usernumber = 30
 testData, test_label, pred_label, usernumber = test_new(model, usernumber)
-output = "<h1>Welcome!</h1>><brYou selected: " + str(number) + "<br><br>Please add in your browser URL '/yourimage' to see your test image, out of the CIFAR 10 test dataset." + "<br><br>The model predicted the following category of the picture: " + str(pred_label) + "<br><br>The following category is the correct one: " + str(test_label)
+output = "<h1>Welcome!</h1>><brYou selected: " + str(usernumber) + "<br><br>Please add in your browser URL '/yourimage' to see your test image, out of the CIFAR 10 test dataset." + "<br><br>The model predicted the following category of the picture: " + str(pred_label) + "<br><br>The following category is the correct one: " + str(test_label)
 return output
     
 
