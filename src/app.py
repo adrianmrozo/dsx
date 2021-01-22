@@ -1,6 +1,7 @@
 # flask_ngrok_example.py
 from flask import Flask
 from test import test_one
+from test import test_one
 from main import model
 
 app = Flask(__name__)
@@ -18,6 +19,13 @@ def welcome():
 
 @app.route("/predict")
 def predict():
+    output = "<h1>Welcome!</h1><br>Please find below an overview of the testing.<br><br>An image has been selected for you (randomly) with the following image number out of the CIFAR 10 test dataset: " + str(number) + "<br><br>Please add in your browser URL '/yourimage' to see your test image, out of the CIFAR 10 test dataset." + "<br><br>The model predicted the following category of the picture: " + str(pred_label) + "<br><br>The following category is the correct one: " + str(test_label)
+    return output
+
+@app.route("/newpredict")
+def newpredict():
+	usernumber = 30
+	testData, test_label, pred_label, usernumber = test_new(model)
     output = "<h1>Welcome!</h1><br>Please find below an overview of the testing.<br><br>An image has been selected for you (randomly) with the following image number out of the CIFAR 10 test dataset: " + str(number) + "<br><br>Please add in your browser URL '/yourimage' to see your test image, out of the CIFAR 10 test dataset." + "<br><br>The model predicted the following category of the picture: " + str(pred_label) + "<br><br>The following category is the correct one: " + str(test_label)
     return output
     
