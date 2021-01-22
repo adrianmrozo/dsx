@@ -10,7 +10,7 @@ COPY /src/set_initials.py .
 COPY /src/shape_model.py .
 COPY /src/test.py .
 COPY /src/training.py .
-COPY /src/requirements.txt .
+COPY requirements.txt .
 COPY /src/postgres_db.py .
 COPY /src/app.py .
 
@@ -18,6 +18,6 @@ RUN pip install --upgrade pip
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 
-CMD ["python3", “/src/postgres_db.py"]
-CMD ["python3", “/src/app.py"]
+CMD ["python3", "postgres_db.py"]
+CMD ["python3", "app.py"]
 
