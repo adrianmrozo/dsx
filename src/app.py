@@ -1,7 +1,7 @@
 # flask_ngrok_example.py
 from flask import Flask
 from test import test_one
-from test import test_one
+from test import test_new
 from main import model
 
 app = Flask(__name__)
