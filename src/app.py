@@ -48,7 +48,7 @@ def user(usr):
 #    output = "<h1>Welcome!</h1><br>Please find below an overview of the testing.<br><br>An image that you have selected with the following image number out of the CIFAR 10 test dataset: " + str(number) + "<br><br>Please add in your browser URL '/yourimage' to see your test image, out of the CIFAR 10 test dataset." + "<br><br>The model predicted the following category of the picture: " + str(pred_label) + "<br><br>The following category is the correct one: " + str(test_label)
 #    return output
 
-working:
+#working:
 @app.route("/predictthirty")
 def newpredict():
     testData, test_label, pred_label, number = test_new(model, 30)
