@@ -5,7 +5,7 @@
 #password = input("Insert a password for your database:") or "pgpass"
 
 
-host = "127.0.0.1"
+host = "localhost"
 database = "milestone5"
 port = "5431"
 user = "postgres"
@@ -26,7 +26,7 @@ cur.execute("CREATE TABLE input_data (ID SERIAL PRIMARY KEY, input_label TEXT, i
 
 def savingtestresult(test_label, test_data, pred_label):
 
-    host = "127.0.0.1"
+    host = "localhost"
     database = "milestone5"
     port = "5432"
     user = "postgres"
