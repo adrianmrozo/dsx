@@ -1,15 +1,10 @@
 # flask_ngrok_example.py
-from flask import Flask, redirect, url_for, render_template, request
-from test import test_one
+from flask import Flask, redirect, url_for, render_template, request, send_file
 from test import test_new
 from main import model
+from postgres_db import savingtestresult
 
 app = Flask(__name__)
-
-
-testData, test_label, pred_label, number = test_one(model)
-
-
 
 @app.route("/")
 def welcome():
@@ -28,11 +23,11 @@ def predict():
 @app.route("/<usr>")
 def user(usr):
     testData, test_label, pred_label, number = test_new(model, int(usr))
+    savingtestresult(testData, test_label, pred_label)
     output = "<h1>Welcome!</h1><br>Please find below an overview of the testing.<br><br>You have selected the following image number out of the CIFAR 10 test dataset: " + str(number) + "<br><br>Please replace in your browser URL your number and the hashtag and enter '/predict/yourimage' to see your test image, out of the CIFAR 10 test dataset. If it is the second time you are picking and testing a picture, you should reload it again so that your new picture is loaded." + "<br><br>The model predicted the following category of the picture: " + str(pred_label) + "<br><br>The following category is the correct one: " + str(test_label)
     return output
                             
 
-from flask import send_file
 
 @app.route('/predict/yourimage')
 def get_image():
