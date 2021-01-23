@@ -31,7 +31,7 @@ def enternumber():
 
 @app.route("/<usr>")
 def user(usr):
-    return f"<h1>{usr}</h1>
+    return f"<h1>{usr}</h1>"
 
 #not working:
 #@app.route("/enternumber")
