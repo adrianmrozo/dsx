@@ -5,7 +5,7 @@
 #password = input("Insert a password for your database:") or "pgpass"
 
 
-host = "localhost"
+host = "postgres"
 database = "milestone5"
 port = "5431"
 user = "postgres"
@@ -19,16 +19,16 @@ cur = con.cursor()
 
 # create input data table
 cur.execute("CREATE TABLE input_data (ID SERIAL PRIMARY KEY, input_label TEXT, image TEXT, predicted_label TEXT);")
-
+con.close()
 
 
 #store test data, test label, prediction label
 
 def savingtestresult(test_label, test_data, pred_label):
 
-    host = "localhost"
+    host = "postgres"
     database = "milestone5"
-    port = "5432"
+    port = "5431"
     user = "postgres"
     password = "pgpass"
 
