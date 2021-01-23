@@ -27,7 +27,7 @@ def enternumber():
         user = request.form["nm"]
         return redirect(url_for("user", usr= user))
     else:
-        return render_template("<form action='#' method='post'><p>Enter a number:</p><p><input type='number' name='nm' /></p></form>
+        return render_template("<form action='#' method='post'><p>Enter a number:</p><p><input type='number' name='nm' /></p></form>")
 
 @app.route("/<usr>")
 def newpredict(usr):
