@@ -29,23 +29,26 @@ model = main.model
 
 
 #store test data, test label, prediction label
-from test import test_one
-test_data, test_label, pred_label = test_one(model)
+#from test import test_one
+#test_data, test_label, pred_label = test_one(model)
+
+def savingtestresult(test_label, test_data):
+    savingtestresult.counter += 1
+    #load testdata into database input_data
+    cur.execute("insert into input_data (ID, input_label, image) values (%s, %s, %s)", (savingtestresult.counter, test_label, str(test_data)) )
 
 
-#load testdata into database input_data
-cur.execute("insert into input_data (ID, input_label, image) values (%s, %s, %s)", (1, test_label, str(test_data)) )
+    #execute query
+    cur.execute("select * from input_data;")
+    image1 = np.fromstring(cur.fetchall()[-1], dtype = int).reshape(32,32,3)
+    print ("These are the inputs that have been tested so far:")
+    print(cur.fetchall()[-1], image1)
 
+    #cur.execute("select * from predictions;")
+    #print ("The CNN predicted the tested inputs to be:")
+    #print(cur.fetchall())
+    #commit data to db
+    con.commit()
+    con.close()
+savingtestresult.counter = 0
 
-#execute query
-cur.execute("select * from input_data;")
-image1 = np.fromstring(cur.fetchall()[-1], dtype = int).reshape(32,32,3)
-print ("These are the inputs that have been tested so far:")
-print(cur.fetchall()[-1], image1)
-
-#cur.execute("select * from predictions;")
-#print ("The CNN predicted the tested inputs to be:")
-#print(cur.fetchall())
-#commit data to db
-con.commit()
-con.close()
