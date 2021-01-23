@@ -20,10 +20,6 @@ cur = con.cursor()
 # create input data table
 cur.execute("CREATE TABLE input_data (ID SERIAL PRIMARY KEY, input_label TEXT, image TEXT, predicted_label TEXT);")
 
-#train the model and store it
-#also make it available in this script
-import main
-model = main.model
 
 
 #store test data, test label, prediction label
