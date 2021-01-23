@@ -5,7 +5,7 @@
 #password = input("Insert a password for your database:") or "pgpass"
 
 
-host = "127.0.0.1"
+host = "0.0.0.0"
 database = "milestone5"
 port = "5431"
 user = "postgres"
