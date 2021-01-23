@@ -14,13 +14,11 @@ password = "pgpass"
 import psycopg2
 import numpy as np
 
-
 con = psycopg2.connect(dbname=database, user=user, password=password, host=host, port = port)
 cur = con.cursor()
 
 # create input data table
 cur.execute("CREATE TABLE input_data (ID SERIAL PRIMARY KEY, input_label TEXT, image TEXT, predicted_label TEXT);")
-
 
 #train the model and store it
 #also make it available in this script
@@ -33,6 +31,16 @@ from test import test_one
 test_data, test_label, pred_label = test_one(model)
 
 def savingtestresult(test_label, test_data, pred_label):
+
+    host = "0.0.0.0"
+    database = "milestone5"
+    port = "5431"
+    user = "postgres"
+    password = "pgpass"
+
+    con = psycopg2.connect(dbname=database, user=user, password=password, host=host, port = port)
+    cur = con.cursor()
+
     savingtestresult.counter += 1
     #load testdata into database input_data
     cur.execute("insert into input_data (ID, input_label, image) values (%s, %s, %s)", (1, test_label, str(test_data), pred_label))
