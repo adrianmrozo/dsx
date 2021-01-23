@@ -7,7 +7,7 @@
 
 host = "127.0.0.1"
 database = "milestone5"
-port = "5005"
+port = "5431"
 user = "postgres"
 password = "pgpass"
 
