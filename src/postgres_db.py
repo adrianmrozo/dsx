@@ -35,9 +35,9 @@ def savingtestresult(test_label, test_data, pred_label):
     con = psycopg2.connect(dbname=database, user=user, password=password, host=host, port = port)
     cur = con.cursor()
 
-    savingtestresult.counter += 1
+    #savingtestresult.counter += 1
     #load testdata into database input_data
-    cur.execute("insert into input_data (ID, input_label, image) values (%s, %s, %s)", (1, test_label, str(test_data), pred_label))
+    cur.execute("insert into input_data (ID, input_label, image, predicted_label) values (%s, %s, %s, %s)", (1, test_label, str(test_data), pred_label))
 
     #execute query
     #cur.execute("select * from input_data;")
@@ -51,5 +51,5 @@ def savingtestresult(test_label, test_data, pred_label):
     #commit data to db
     con.commit()
     con.close()
-savingtestresult.counter = 0
+#savingtestresult.counter = 0
 
