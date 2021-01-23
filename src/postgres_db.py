@@ -27,8 +27,6 @@ model = main.model
 
 
 #store test data, test label, prediction label
-from test import test_one
-test_data, test_label, pred_label = test_one(model)
 
 def savingtestresult(test_label, test_data, pred_label):
 
