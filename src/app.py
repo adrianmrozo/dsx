@@ -13,7 +13,7 @@ testData, test_label, pred_label, number = test_one(model)
 
 @app.route("/")
 def welcome():
-    output = "<h1>Welcome!</h1><br>Please add '/predict' to your browser line to see a test sample."
+    output = "<h1>Welcome!</h1><br>Please add '/predict' to your browser line to see a test sample or '/predict' to pick yourself a test image out of the CIFAR-10 test dataset"
     return output
     
 @app.route("/predict")
@@ -31,9 +31,22 @@ def enternumber():
 
 @app.route("/<usr>")
 def user(usr):
-    testData, test_label, pred_label, number = test_new(model, int(usr))
-    output = "<h1>Welcome!</h1><br>Please find below an overview of the testing.<br><br>An image that you have selected with the following image number out of the CIFAR 10 test dataset: " + str(number) + "<br><br>Please add in your browser URL '/yourimage' to see your test image, out of the CIFAR 10 test dataset." + "<br><br>The model predicted the following category of the picture: " + str(pred_label) + "<br><br>The following category is the correct one: " + str(test_label)
-    return output
+    return f"<h1>{usr}</h1>
+
+#not working:
+#@app.route("/enternumber")
+#def enternumber():
+#    if request.method == "POST":
+#        user = request.form["nm"]
+#        return redirect(url_for("user", usr=user))
+#    else:
+#        return render_template("<form action='#' method='post'><p>Enter a number:</p><p><input type='number' name='nm' /></p></form>")
+
+#@app.route("/<usr>")
+#def user(usr):
+#    testData, test_label, pred_label, number = test_new(model, int(usr))
+#    output = "<h1>Welcome!</h1><br>Please find below an overview of the testing.<br><br>An image that you have selected with the following image number out of the CIFAR 10 test dataset: " + str(number) + "<br><br>Please add in your browser URL '/yourimage' to see your test image, out of the CIFAR 10 test dataset." + "<br><br>The model predicted the following category of the picture: " + str(pred_label) + "<br><br>The following category is the correct one: " + str(test_label)
+#    return output
 
 #working:
 #@app.route("/newpredict")
