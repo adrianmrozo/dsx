@@ -19,7 +19,7 @@ con = psycopg2.connect(dbname=database, user=user, password=password, host=host,
 cur = con.cursor()
 
 # create input data table
-cur.execute("CREATE TABLE input_data (ID SERIAL PRIMARY KEY, input_label TEXT, image TEXT);")
+cur.execute("CREATE TABLE input_data (ID SERIAL PRIMARY KEY, input_label TEXT, image TEXT, predicted_label TEXT);")
 
 
 #train the model and store it
@@ -29,20 +29,19 @@ model = main.model
 
 
 #store test data, test label, prediction label
-#from test import test_one
-#test_data, test_label, pred_label = test_one(model)
+from test import test_one
+test_data, test_label, pred_label = test_one(model)
 
-def savingtestresult(test_label, test_data):
+def savingtestresult(test_label, test_data, pred_label):
     savingtestresult.counter += 1
     #load testdata into database input_data
-    cur.execute("insert into input_data (ID, input_label, image) values (%s, %s, %s)", (savingtestresult.counter, test_label, str(test_data)) )
-
+    cur.execute("insert into input_data (ID, input_label, image) values (%s, %s, %s)", (1, test_label, str(test_data), pred_label))
 
     #execute query
-    cur.execute("select * from input_data;")
-    image1 = np.fromstring(cur.fetchall()[-1], dtype = int).reshape(32,32,3)
-    print ("These are the inputs that have been tested so far:")
-    print(cur.fetchall()[-1], image1)
+    #cur.execute("select * from input_data;")
+    #image1 = np.fromstring(cur.fetchall()[-1], dtype = int).reshape(32,32,3)
+    #print ("These are the inputs that have been tested so far:")
+    #print(cur.fetchall()[-1], image1)
 
     #cur.execute("select * from predictions;")
     #print ("The CNN predicted the tested inputs to be:")
