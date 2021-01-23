@@ -13,64 +13,23 @@ testData, test_label, pred_label, number = test_one(model)
 
 @app.route("/")
 def welcome():
-    output = "<h1>Welcome!</h1><br>Please add '/predict' to your browser line to see a test sample or '/enternumber' to pick yourself a test image out of the CIFAR-10 test dataset or '/predictthirty'"
-    return output
-    
-@app.route("/predict")
-def predict():
-    output = "<h1>Welcome!</h1><br>Please find below an overview of the testing.<br><br>An image has been selected for you with the following image number out of the CIFAR 10 test dataset: " + str(number) + "<br><br>Please add in your browser URL '/yourimage' to see your test image, out of the CIFAR 10 test dataset." + "<br><br>The model predicted the following category of the picture: " + str(pred_label) + "<br><br>The following category is the correct one: " + str(test_label)
+    output = "<h1>Welcome!</h1><br>Please add '/predict' to your browser line to pick yourself a test image out of the CIFAR-10 test dataset"
     return output
 
-@app.route("/login", methods=["POST", "GET"])
-def login():
+@app.route("/predict", methods=["POST", "GET"])
+def predict():
     if request.method == "POST":
         user = request.form["nm"]
         return redirect(url_for("user", usr=user))
     else:
-        output = '<form action="#" method="post"><p>Name:</p><p><input type="text" name="nm" /></p><p><input type="submit" value="submit"/></p></form>'
+        output = '<form action="#" method="post"><p>Pick a number between 1 and 10000, the system will take out of the CIFAR-10 dataset the corresponding picture:</p><p><input type="text" name="nm" /></p><p><input type="submit" value="submit"/></p></form>'
         return output
-    
-#@app.route("/<usr>")
-#def user(usr):
-#    return f"<h1>{usr}</h1>"
-
 
 @app.route("/<usr>")
 def user(usr):
     testData, test_label, pred_label, number = test_new(model, int(usr))
-    output = "<h1>Welcome!</h1><br>Please find below an overview of the testing.<br><br>An image has been selected for you (randomly) with the following image number out of the CIFAR 10 test dataset: " + str(number) + "<br><br>Please add in your browser URL '/yourimage' to see your test image, out of the CIFAR 10 test dataset." + "<br><br>The model predicted the following category of the picture: " + str(pred_label) + "<br><br>The following category is the correct one: " + str(test_label)
+    output = "<h1>Welcome!</h1><br>Please find below an overview of the testing.<br><br>You have selected the following image number out of the CIFAR 10 test dataset: " + str(number) + "<br><br>Please enter again in your browser URL '/predict/yourimage' to see your test image, out of the CIFAR 10 test dataset." + "<br><br>The model predicted the following category of the picture: " + str(pred_label) + "<br><br>The following category is the correct one: " + str(test_label)
     return output
-
-#not working:
-#@app.route("/enternumber")
-#def enternumber():
-#    if request.method == "POST":
-#        user = request.form["nm"]
-#        return redirect(url_for("user", usr=user))
-#    else:
-#        return render_template("<form action='#' method='post'><p>Enter a number:</p><p><input type='number' name='nm' /></p></form>")
-
-#@app.route("/<usr>")
-#def user(usr):
-#    testData, test_label, pred_label, number = test_new(model, int(usr))
-#    output = "<h1>Welcome!</h1><br>Please find below an overview of the testing.<br><br>An image that you have selected with the following image number out of the CIFAR 10 test dataset: " + str(number) + "<br><br>Please add in your browser URL '/yourimage' to see your test image, out of the CIFAR 10 test dataset." + "<br><br>The model predicted the following category of the picture: " + str(pred_label) + "<br><br>The following category is the correct one: " + str(test_label)
-#    return output
-
-#working:
-@app.route("/predictthirty")
-def newpredict():
-    testData, test_label, pred_label, number = test_new(model, 30)
-    output = "<h1>Welcome!</h1><br>Please find below an overview of the testing.<br><br>An image has been selected for you (randomly) with the following image number out of the CIFAR 10 test dataset: " + str(number) + "<br><br>Please add in your browser URL '/yourimage' to see your test image, out of the CIFAR 10 test dataset." + "<br><br>The model predicted the following category of the picture: " + str(pred_label) + "<br><br>The following category is the correct one: " + str(test_label)
-    return output
- 
-#Not working
-#@app.route("/newpredict")
-#def newpredict():
-#    usernumber = 30
-#    testData, test_label, pred_label, usernumber = test_new(model, usernumber)
-#    output = "<h1>Welcome!</h1>><brYou selected: " + str(usernumber) + "<br><br>Please add in your browser URL '/yourimage' to see your test image, out of the CIFAR 10 test dataset." + "<br><br>The model predicted the following category of the picture: " + str(pred_label) + "<br><br>The following category is the correct one: " + str(test_label)
-#    return output
-     
                             
 
 from flask import send_file
