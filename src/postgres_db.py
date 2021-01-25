@@ -1,10 +1,3 @@
-#host = "127.0.0.1"
-#database = "milestone5"
-#port = "5005"
-#user = input("Insert a name for your database:") or "postgres"
-#password = input("Insert a password for your database:") or "pgpass"
-
-
 host = "postgres"
 database = "milestone5"
 port = "5432"
@@ -20,47 +13,19 @@ con = psycopg2.connect(dbname=database, user=user, password=password, host=host,
 
 cur = con.cursor()
 
-# create input data table
-#cur.execute("CREATE TABLE input_data (ID SERIAL PRIMARY KEY, input_label TEXT);")
-
-#create predictions table
-#cur.execute("CREATE TABLE predictions (ID SERIAL PRIMARY KEY, prediction TEXT);")
-
-#train the model and store it
-#also make it available in this script
-#import main
-#model = main.model
-
-#store test data, test label, prediction label
-
 #cur.execute("CREATE TABLE input_data (ID SERIAL PRIMARY KEY, input_label varchar);")
 cur.execute("CREATE TABLE predictions (ID SERIAL PRIMARY KEY, prediction varchar);")
 
-
-cur.execute('''
-CREATE SEQUENCE idsequence
-    start 10
-    increment 1;''')
-
-
-
-#execute query
-#cur.execute("select * from input_data;")
-#print ("These are the inputs that have been tested so far:")
-#print(cur.fetchall())
-
-
-#cur.execute("select * from predictions;")
-#print ("The CNN predicted the tested inputs to be:")
-#print(cur.fetchall())
-
+#cur.execute('''
+#CREATE SEQUENCE idsequence
+#    start 10
+#    increment 1;''')
 
 #commit data to db
 con.commit()
 con.close()
 
-
-#store test data, test label, prediction label
+#store prediction 
 
 def savingtestresult(pred_label):
 #def savingtestresult(test_label, test_data, pred_label):
@@ -81,8 +46,8 @@ def savingtestresult(pred_label):
     cur.execute("insert into predictions (ID, prediction) values (%s, %s)", (savingtestresult.counter, pred_label))
     con.commit()
     con.close()
-#savingtestresult.counter = 0
 
+    
 def printdatabase():
     import psycopg2 as pg
     #import pandas as pd
@@ -104,8 +69,6 @@ def printdatabase():
 
     return record
 
-    # OR
-    #print(another_attempt) 
     con.close()
 
 
