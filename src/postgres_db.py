@@ -72,11 +72,12 @@ def savingtestresult(pred_label):
     password = "pgpass"
 
     con = psycopg2.connect(dbname=database, user=user, password=password, host=host, port = port)
-    cur = con.cursor()
 
+    cur = con.cursor()
     #savingtestresult.counter += 1
     #load testdata into database input_data
-    cur.execute("insert into predictions (ID, prediction) values (nextval('idsequence'), %s)", (pred_label,))
+    #correct: cur.execute("insert into predictions (ID, prediction) values (nextval('idsequence'), %s)", (pred_label,))
+    cur.execute("insert into predictions (ID, prediction) values (%s, %s)", (1, pred_label))
 
     #execute query
     #cur.execute("select * from input_data;")
