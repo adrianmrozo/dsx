@@ -7,6 +7,7 @@ from postgres_db import printdatabase
 import psycopg2
 import numpy as np
 
+savingtestresult.counter = 0
 
 app = Flask(__name__)
 
