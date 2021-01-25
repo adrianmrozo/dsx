@@ -32,8 +32,6 @@ cur = con.cursor()
 #model = main.model
 
 #store test data, test label, prediction label
-#from test import test_one
-testData, test_label, pred_label = test_one(model)
 
 #cur.execute("CREATE TABLE input_data (ID SERIAL PRIMARY KEY, input_label varchar);")
 cur.execute("CREATE TABLE predictions (ID SERIAL PRIMARY KEY, prediction varchar);")
