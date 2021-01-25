@@ -62,7 +62,7 @@ con.close()
 
 #store test data, test label, prediction label
 
-def savingtestresult():
+def savingtestresult(pred_label):
 #def savingtestresult(test_label, test_data, pred_label):
 
     host = "postgres"
