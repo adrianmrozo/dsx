@@ -70,34 +70,23 @@ def savingtestresult(pred_label):
     port = "5432"
     user = "postgres"
     password = "pgpass"
-    idsequence = 2
 
     con = psycopg2.connect(dbname=database, user=user, password=password, host=host, port = port)
 
     cur = con.cursor()
     savingtestresult.counter += 1
-    #load testdata into database input_data
-    #cur.execute("insert into predictions (ID, prediction) values (nextval(%s, %s)", (pred_label,))
+    
+    #load prediction into database 
+    #cur.execute("insert into predictions (ID, prediction) values (nextval('idsequence'), %s)", (pred_label,))
     cur.execute("insert into predictions (ID, prediction) values (%s, %s)", (savingtestresult.counter, pred_label))
-
-    #execute query
-    #cur.execute("select * from input_data;")
-    #image1 = np.fromstring(cur.fetchall()[-1], dtype = int).reshape(32,32,3)
-    #print ("These are the inputs that have been tested so far:")
-    #print(cur.fetchall()[-1], image1)
-
-    #cur.execute("select * from predictions;")
-    #print ("The CNN predicted the tested inputs to be:")
-    #print(cur.fetchall())
-    #commit data to db
     con.commit()
     con.close()
 #savingtestresult.counter = 0
 
 def printdatabase():
     import psycopg2 as pg
-    import pandas as pd
-    import pandas.io.sql as psql
+    #import pandas as pd
+    #import pandas.io.sql as psql
     host = "postgres"
     database = "milestone5"
     port = "5432"
@@ -107,11 +96,13 @@ def printdatabase():
     con = psycopg2.connect(dbname=database, user=user, password=password, host=host, port = port)
 
     cur = con.cursor()
-    #my_table = pd.read_sql_table('table_name', connection)
-    my_table = pd.read_sql('select * from predictions', con)
+    #record = pd.read_sql_table('table_name', connection)
+    #record = pd.read_sql('select * from predictions', con)
+    cur.execute("SELECT * from predictions")
+    record = cur.fetchall()
     #another_attempt= psql.read_sql("SELECT * FROM input_data", con)
 
-    return my_table
+    return record
 
     # OR
     #print(another_attempt) 
