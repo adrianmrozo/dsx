@@ -1,4 +1,3 @@
-# flask_ngrok_example.py
 from flask import Flask, redirect, url_for, render_template, request, send_file
 from test import test_new
 from main import model
