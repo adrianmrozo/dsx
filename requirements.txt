@@ -7,4 +7,3 @@ psycopg2 == 2.8.6
 matplotlib == 3.3.3
 random2 == 1.0.1 
 flask == 1.1.2
-pandas == 1.2.1
