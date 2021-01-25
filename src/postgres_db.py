@@ -93,6 +93,9 @@ def savingtestresult(pred_label):
 #savingtestresult.counter = 0
 
 def printdatabase():
+    import psycopg2 as pg
+    import pandas as pd
+    import pandas.io.sql as psql
     host = "postgres"
     database = "milestone5"
     port = "5432"
