@@ -29,7 +29,7 @@ def predict():
 @app.route("/<usr>")
 def user(usr):
     test_data, test_label, pred_label, number = test_new(model, int(usr))
-    savingtestresult(pred_label)
+    #savingtestresult(pred_label)
     if pred_label == test_label:
         pred_corr = "correct"
     else:
