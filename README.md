@@ -30,7 +30,7 @@ We tried to make it as simple as possible for the end user. If there is no prior
 After registration (free and straight forward) the user creates a new instance and can enter the following commands:
 
 ```
-git clone https://github.com/adrianmrozo/ds
+git clone https://github.com/adrianmrozo/dsx
 cd ds
 docker-compose up
 ```
