@@ -31,7 +31,7 @@ After registration (free and straight forward) the user creates a new instance a
 
 ```
 git clone https://github.com/adrianmrozo/dsx
-cd ds
+cd dsx
 docker-compose up
 ```
 
@@ -50,7 +50,7 @@ The user gets to the welcome page. Follow instructions from there.
 
 ### If Docker is already installed
 
-Open the "ds" folder  in your terminal and enter the command:
+Open the "dsx" folder  in your terminal and enter the command:
 ```
 docker-compose up
 ```
